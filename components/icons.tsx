@@ -1,10 +1,17 @@
-import { LucideProps, Moon, SunMedium, type LucideIcon } from "lucide-react"
+import {
+  LucideProps,
+  Menu,
+  Moon,
+  SunMedium,
+  type LucideIcon,
+} from "lucide-react"
 
 export type Icon = LucideIcon
 
 export const Icons = {
   sun: SunMedium,
   moon: Moon,
+  menu: Menu,
   artstation: (props: LucideProps) => (
     <svg
       role="img"
