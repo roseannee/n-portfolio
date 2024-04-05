@@ -1,6 +1,9 @@
 export interface NavItem {
   title: string
-  href?: string
-  disabled?: boolean
-  external?: boolean
+  href: string
+  isHidden?: boolean
+}
+
+export interface MainNavProps {
+  items: NavItem[]
 }
