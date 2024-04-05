@@ -1,10 +1,12 @@
 import "@/styles/globals.css"
 
 import { Metadata, Viewport } from "next"
+import { GeistSans } from "geist/font/sans"
 
 import { siteConfig } from "@/config/site"
-import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { Footer } from "@/components/footer"
+import Providers from "@/components/providers/providers"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -36,16 +38,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en" suppressHydrationWarning>
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
+            "min-h-screen overflow-x-hidden bg-background font-sans antialiased",
+            GeistSans.className
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-            </div>
-          </ThemeProvider>
+          <Providers>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <div className="relative flex min-h-screen flex-col">
+                <SiteHeader />
+                <div className="flex-1">{children}</div>
+                <Footer />
+              </div>
+            </ThemeProvider>
+          </Providers>
         </body>
       </html>
     </>
