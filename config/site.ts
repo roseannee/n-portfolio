@@ -5,6 +5,11 @@ export const siteConfig = {
   description: "n-portfolio",
   mainNav: [
     {
+      title: "Home",
+      href: "/",
+      isHidden: true,
+    },
+    {
       title: "About",
       href: "/about",
     },
@@ -24,5 +29,6 @@ export const siteConfig = {
   },
   links: {
     artstation: "https://www.artstation.com/wiramondi",
+    github: "https://github.com/roseannee",
   },
 }
