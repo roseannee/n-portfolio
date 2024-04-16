@@ -1,7 +1,10 @@
 import {
+  ArrowUpRight,
+  FolderOpenDot,
   LucideProps,
   Menu,
   Moon,
+  Send,
   SunMedium,
   type LucideIcon,
 } from "lucide-react"
@@ -12,6 +15,9 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   menu: Menu,
+  projects: (props: LucideProps) => <FolderOpenDot size={20} {...props} />,
+  send: (props: LucideProps) => <Send size={20} {...props} />,
+  external: (props: LucideProps) => <ArrowUpRight size={20} {...props} />,
   artstation: (props: LucideProps) => (
     <svg
       role="img"
