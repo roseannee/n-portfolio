@@ -1,9 +1,11 @@
-import Typography from "@/components/typography"
+import { ImageCol } from "@/components/features/home-page/image-col"
+import { InfoCol } from "@/components/features/home-page/info-col"
 
 export default function IndexPage() {
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <Typography variant="h1">Home</Typography>
+    <section className="container grid min-h-screen-with-header place-items-center gap-6 py-6 md:grid-cols-2 md:gap-0 md:py-10">
+      <InfoCol />
+      <ImageCol />
     </section>
   )
 }
