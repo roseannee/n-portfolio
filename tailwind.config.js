@@ -13,6 +13,12 @@ module.exports = {
       },
     },
     extend: {
+      spacing: {
+        "screen-with-header": "calc(100vh - 65px)",
+      },
+      boxShadow: {
+        blob: "0 0 0 9px hsl(var(--secondary))",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -52,9 +58,11 @@ module.exports = {
         lg: `var(--radius)`,
         md: `calc(var(--radius) - 2px)`,
         sm: "calc(var(--radius) - 4px)",
+        blob: '60% 40% 30% 70% / 60% 30% 70% 40%'
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        logo: ["var(--font-logo)"],
       },
       keyframes: {
         "accordion-down": {
@@ -65,10 +73,22 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        blob: {
+          '0%': {
+            borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+          },
+          '50%': {
+            borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%",
+          },
+          '100%': {
+            borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+          },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        blob: "blob 8s ease-in-out infinite 1s",
       },
     },
   },
