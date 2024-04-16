@@ -7,7 +7,6 @@ export const siteConfig = {
     {
       title: "Home",
       href: "/",
-      isHidden: true,
     },
     {
       title: "About",
@@ -30,5 +29,6 @@ export const siteConfig = {
   links: {
     artstation: "https://www.artstation.com/wiramondi",
     github: "https://github.com/roseannee",
+    mail: "name@example.com",
   },
 }

@@ -4,10 +4,11 @@ import { Metadata, Viewport } from "next"
 import { GeistSans } from "geist/font/sans"
 
 import { siteConfig } from "@/config/site"
+import { fontLogo } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { Footer } from "@/components/footer"
+import { SiteFooter } from "@/components/layouts/site-footer"
+import { SiteHeader } from "@/components/layouts/site-header"
 import Providers from "@/components/providers/providers"
-import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -38,8 +39,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en" suppressHydrationWarning>
         <body
           className={cn(
-            "min-h-screen overflow-x-hidden bg-background font-sans antialiased",
-            GeistSans.className
+            "min-h-screen overflow-x-hidden bg-background antialiased",
+            GeistSans.className,
+            fontLogo.variable
           )}
         >
           <Providers>
@@ -47,7 +49,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <div className="relative flex min-h-screen flex-col">
                 <SiteHeader />
                 <div className="flex-1">{children}</div>
-                <Footer />
+                <SiteFooter />
               </div>
             </ThemeProvider>
           </Providers>
