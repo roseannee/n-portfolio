@@ -10,8 +10,6 @@ import { opacityVariants } from "@/lib/framer-variants"
 
 const MLink = m(Link)
 
-// TODO add shadow-blob
-
 export function ImageCol() {
   return (
     <MLink
@@ -21,7 +19,7 @@ export function ImageCol() {
       href={siteConfig.links.artstation}
       target="_blank"
       rel="noreferrer"
-      className="relative order-first size-60 animate-blob cursor-help rounded-blob md:order-none md:size-72 lg:size-96"
+      className="relative order-first size-60 animate-blob cursor-help rounded-blob md:size-72 lg:order-none lg:size-96"
     >
       <Image
         src={octopus.src}

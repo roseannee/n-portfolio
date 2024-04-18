@@ -20,7 +20,7 @@ export function InfoCol() {
       variants={parentVariants()}
       className="flex w-full flex-col space-y-4"
     >
-      <Typography variant="h1" asChild>
+      <Typography variant="h1" asChild className="md:text-center lg:text-left">
         <ReactTyped
           strings={[
             "3D Artist",
@@ -34,14 +34,17 @@ export function InfoCol() {
         />
       </Typography>
 
-      <MTypography variants={childrenVariants}>
+      <MTypography
+        variants={childrenVariants}
+        className="md:text-pretty lg:text-balance"
+      >
         Hi, I&apos;m Name Surname. A passionate 3D artist from Ukraine currently
         based in Biała Podlaska, Poland. I would be glad to work together.
       </MTypography>
 
       <m.div
         variants={childrenVariants}
-        className="flex flex-col items-center gap-4 md:flex-row"
+        className="flex flex-col items-center gap-4 md:flex-row md:*:w-full lg:*:w-auto"
       >
         <Link
           href="/projects"
@@ -53,7 +56,7 @@ export function InfoCol() {
           My projects <Icons.projects />
         </Link>
 
-        <div className="flex w-full items-center md:gap-4">
+        <div className="flex w-full items-center md:gap-4 md:*:grow">
           <Link
             href="/contact"
             className={cn(
