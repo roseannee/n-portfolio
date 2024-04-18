@@ -1,6 +1,7 @@
 import {
   ArrowUpRight,
   FolderOpenDot,
+  Loader2,
   LucideProps,
   Menu,
   Moon,
@@ -18,6 +19,7 @@ export const Icons = {
   projects: (props: LucideProps) => <FolderOpenDot size={20} {...props} />,
   send: (props: LucideProps) => <Send size={20} {...props} />,
   external: (props: LucideProps) => <ArrowUpRight size={20} {...props} />,
+  loader: (props: LucideProps) => <Loader2 size={20} {...props} />,
   artstation: (props: LucideProps) => (
     <svg
       role="img"
