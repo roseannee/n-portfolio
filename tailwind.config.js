@@ -13,6 +13,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        xs: '490px'
+      },
       spacing: {
         "screen-with-header": "calc(100vh - 65px)",
       },
