@@ -1,12 +1,11 @@
-"use client"
-
-import { useRef } from "react"
 import { sendSafeEmail } from "@/actions/send-email"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useAction } from "next-safe-action/hooks"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 import { z } from "zod"
 
+import { siteConfig } from "@/config/site"
 import { contactFormSchema } from "@/lib/definitions"
 import { Button } from "@/components/ui/button"
 import {
@@ -19,14 +18,10 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Toaster } from "@/components/ui/toaster"
-import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/shared/icons"
 
 // TODO reset form after success
 export function ContactForm() {
-  const { toast } = useToast()
-
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -35,35 +30,34 @@ export function ContactForm() {
     },
   })
 
-  // TODO cleanup
+  // TODO cleanup => add toast.promise
   const { execute, status } = useAction(sendSafeEmail, {
     onSuccess(data, input) {
       console.log("HELLO FROM ONSUCCESS", data, input)
 
-      toast({
-        title: "The email has been successfully sent!",
+      toast.success("The email has been successfully sent!", {
         description:
-          "Thank you for the connection ❤️ I will take a look at it and provide feedback as soon as possible!",
+          "Thank you for the connection ❤️ I will take a look at it and provide feedback asap!",
       })
     },
 
     onError(error, input) {
       console.log("OH NO FROM ONERROR", error, input)
 
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description:
-          "I'm so sorry, but your request could not be processed. Meanwhile you can email me directly.",
+      toast.error("Uh oh! Something went wrong.", {
+        description: "Meanwhile you can email me directly.",
+        action: {
+          label: "Write me",
+          onClick: () =>
+            (window.location.href = `mailto:${siteConfig.links.mail}`),
+        },
       })
     },
 
     onExecute(input) {
       console.log("HELLO FROM ONEXECUTE", input)
 
-      toast({
-        description: "Sending email...",
-      })
+      toast("Sending email...")
     },
   })
 
@@ -118,8 +112,6 @@ export function ContactForm() {
           )}
         </Button>
       </form>
-
-      <Toaster />
     </Form>
   )
 }

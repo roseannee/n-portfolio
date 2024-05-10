@@ -6,6 +6,7 @@ import { GeistSans } from "geist/font/sans"
 import { siteConfig } from "@/config/site"
 import { fontLogo } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/sonner"
 import { SiteFooter } from "@/components/layouts/site-footer"
 import { SiteHeader } from "@/components/layouts/site-header"
 import Providers from "@/components/providers/providers"
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
   },
 }
 
+// TODO remove theme in the future
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
@@ -50,6 +52,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <SiteHeader />
                 <div className="flex-1">{children}</div>
                 <SiteFooter />
+                <Toaster />
               </div>
             </ThemeProvider>
           </Providers>
