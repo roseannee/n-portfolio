@@ -1,6 +1,8 @@
 import {
   ArrowUpRight,
+  CircleArrowRight,
   FolderOpenDot,
+  Loader,
   Loader2,
   LucideProps,
   Menu,
@@ -20,6 +22,8 @@ export const Icons = {
   send: (props: LucideProps) => <Send size={20} {...props} />,
   external: (props: LucideProps) => <ArrowUpRight size={20} {...props} />,
   loader: (props: LucideProps) => <Loader2 size={20} {...props} />,
+  // arrow: (props: LucideProps) => <CircleArrowRight size={20} {...props} />,
+  loading: (props: LucideProps) => <Loader {...props} />,
   artstation: (props: LucideProps) => (
     <svg
       role="img"
