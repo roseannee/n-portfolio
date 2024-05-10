@@ -56,3 +56,7 @@ export const childrenVariants: Variants = {
     },
   },
 }
+
+export const fadeFromBottomVariants: Variants = {
+  ...childrenVariants,
+}
