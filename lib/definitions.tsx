@@ -4,10 +4,12 @@ export const contactFormSchema = z.object({
   email: z
     .string()
     .trim()
-    .min(1, { message: "This field has to be filled." })
+    .min(1, { message: "Email has to be filled." })
     .email("This is not a valid email."),
   message: z
     .string()
-    .trim()
-    .min(1, { message: "This field has to be filled." }),
+    .min(1, { message: "Message has to be filled." })
+    .refine((value) => value.trim(), {
+      message: "Message cannot be an empty field.",
+    }),
 })
