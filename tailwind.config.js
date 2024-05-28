@@ -17,7 +17,9 @@ module.exports = {
         xs: '490px'
       },
       spacing: {
+        // FIXME maybe do it another way?
         "screen-with-header": "calc(100vh - 65px)",
+        "screen-with-header-and-footer": "calc(100vh - 65px - 109px)"
       },
       boxShadow: {
         blob: "0 0 0 9px hsl(var(--secondary))",
