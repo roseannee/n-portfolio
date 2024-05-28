@@ -1,16 +1,23 @@
 import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
-import Typography from "@/components/typography"
+import { getPortfolioCollections } from "@/lib/data"
+import { AnimatedTitle } from "@/components/features/projects-page/animated-title"
+import { Collections } from "@/components/features/projects-page/collections"
 
 export const metadata: Metadata = {
   title: siteConfig.pages.projects,
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const collections = await getPortfolioCollections()
+
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <Typography variant="h1">Projects</Typography>
+    <section className="container flex min-h-screen-with-header flex-col space-y-10 py-6 md:py-10">
+      <AnimatedTitle />
+
+      {/* TODO suspense? */}
+      <Collections collections={collections} />
     </section>
   )
 }
