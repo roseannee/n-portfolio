@@ -24,6 +24,8 @@ export const opacityVariants: Variants = {
 interface PatentVariantsConfig {
   staggerChildren?: number | undefined
   delayChildren?: number | undefined
+  // FIXME does it need here?
+  delay?: number | undefined
 }
 type ParentVariantsType = (config?: PatentVariantsConfig) => Variants
 
@@ -37,6 +39,7 @@ export const parentVariants: ParentVariantsType = (config?) => {
       transition: {
         staggerChildren: config?.staggerChildren ?? 0.2,
         delayChildren: config?.delayChildren ?? 0.5,
+        delay: config?.delay ?? undefined,
       },
     },
   }
